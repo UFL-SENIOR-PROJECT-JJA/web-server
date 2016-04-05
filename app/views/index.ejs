@@ -1,16 +1,58 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
-		<title><%= title %></title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+		<title>Senior Project Game</title>
+		<script>
+			var username = "<%= user %>";
+			console.log(username);
+		</script>
+		<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+		<script type="text/javascript" src="js/phaser.js"></script>
+		<script src="js/LabelButton.js"></script>
+
+		<script src="js/states/InitalState.js"></script>
+
+		<script src="js/states/ConnectionState.js"></script>
+
+        <script src="js/states/MenuState.js"></script>
+
+
+		<script src="js/states/CreateGameState.js"></script>
+		<script src="js/states/JoinGameState.js"></script>
+
+		<script src="js/states/LobbyState.js"></script>
+
+        <script src="js/states/BootState.js"></script>
+        <script src="js/states/LoadingState.js"></script>
+
+        <script src="js/states/TiledState.js"></script>
+        <script src="js/prefabs/Prefab.js"></script>
+        <script src="js/prefabs/Player.js"></script>
+		<script src="js/prefabs/OtherPlayer.js"></script>
+        <script src="js/prefabs/Enemy.js"></script>
+        <script src="js/prefabs/FlyingEnemy.js"></script>
+        <script src="js/prefabs/Goal.js"></script>
+				<script src="js/prefabs/Bullet.js"></script>
+
+        <script type="text/javascript" src="js/main.js"></script>
+
+		<style>
+		  body {
+		    padding: 0px;
+		    margin: 0px;
+		    background-color: black;
+		  }
+		  </style>
 	</head>
 
-	<body>
-		<% if (user) { %>
-			<h2>Hello <%=user%></h2>
-			<a href="/logout">Logout</a>
-		<% } else { %>
-			<a href="/register">Register</a>
-			<a href="/login">Login</a>
-		<% } %>
+	<body style="margin-bottom: 50px;">
+		<!--<div id="login">
+			<input id="loginID" type="text"> </input>
+			<input id="password" type="password"> </input>
+		</div>-->
+
 	</body>
 </html>
