@@ -31,8 +31,13 @@ Platformer.LoadingState.prototype.preload = function () {
     this.load.image('test_box', "assets/images/test_box_50px.png");
     this.load.image('test_box_large', "assets/images/test_box_100px.png");
     this.load.image('test_box_tall', "assets/images/test_box_tall.png");
+	
+	//Preload audio
+	this.load.audio('laser', "assets/audio/laser.mp3");
+	this.load.audio('theme', "assets/audio/theme.mp3");
+	
     this.load.spritesheet('player_32bit_flipped', "assets/images/player_32bit_flipped.png",32,32,4,0,0);
-
+	
     for (asset_key in assets) { // load assets according to asset key
         if (assets.hasOwnProperty(asset_key)) {
             asset = assets[asset_key];

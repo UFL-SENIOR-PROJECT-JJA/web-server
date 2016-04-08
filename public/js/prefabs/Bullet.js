@@ -30,6 +30,10 @@ Platformer.Bullet = function (game_state, position, properties) {
     this.body.velocity.y = 0;
 
     this.id = timeMade + Connection.socket.name;
+	
+	//Play laser bullet sound when bullet is created and fired
+	Platformer.sounds['laser'].play();
+	
     console.log("bullet " + this.id + " has been fired");
 };
 
