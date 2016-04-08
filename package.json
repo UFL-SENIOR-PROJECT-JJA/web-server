@@ -1,5 +1,5 @@
 {
-  "name": "JJA Web Server",
+  "name": "JJA-Web-Server",
   "version": "1.0.0",
   "description": "JJA Web Server",
   "main": "server.js",
