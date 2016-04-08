@@ -31,11 +31,11 @@ Platformer.TiledState.prototype.init = function (level_data) {
     this.map.addTilesetImage(this.map.tilesets[0].name, level_data.map.tileset);
     Platformer.map = this.map;
     console.log(Platformer.map);
-	
+
 	//Game theme music
 	var theme = this.add.audio('theme');
 	theme.loopFull();
-	
+
     console.log(this);
 };
 
@@ -46,9 +46,9 @@ Platformer.TiledState.prototype.create = function () {
 
 	//Non-theme-music sounds
 	var laser = this.add.audio('laser');
-	this.sounds = {laser};
+	this.sounds = {laser: laser};
 	Platformer.sounds = this.sounds;
-	
+
     //if its mobile create the touch buttons
 
     // create map layers
@@ -189,10 +189,10 @@ Platformer.TiledState.prototype.getOnlinePlayers = function (tilemap) {
     });
 
     Connection['socket'].on('onReceiveBullet', function(data) {
-	
+
 	  //When a bullet is fired from any client, other clients hear the bullet sound
 	  Platformer.sounds['laser'].play();
-	
+
       if(data.dir === 'right'){
         bullet = Platformer.groups['bullets'].create(data.x + 10 , data.y + 14, 'bullet');
         game.physics.enable(bullet, Phaser.Physics.ARCADE);

@@ -18,20 +18,24 @@ Platformer.MenuState.prototype.init = function () {
 
 Platformer.MenuState.prototype.preload = function () {
 
-    game.load.bitmapFont('font', 'assets/font/font.png', 'assets/font/font.fnt');
+        game.load.bitmapFont('font', '/assets/font/font.png', '/assets/font/font.fnt');
 
-    this.load.image('menubg', 'assets/images/Galaxy-Backgrounds.jpg');
-    this.load.image('overlay', 'assets/images/transparent.png');
+        this.load.image('menubg', '/assets/images/Galaxy-Backgrounds.jpg');
+        this.load.image('overlay', '/assets/images/transparent.png');
 
-    this.load.spritesheet('createGame', 'assets/images/menu/creategame.png', 192, 42);
-    this.load.spritesheet('greenButton', 'assets/images/menu/greenButton.png', 635, 190);
-    this.load.spritesheet('purpleButton', 'assets/images/menu/purpleButton.png', 635, 190);
-    this.load.spritesheet('blueButton', 'assets/images/menu/blueButton.png', 635, 190);
+        this.load.spritesheet('createGame', '/assets/images/menu/creategame.png', 192, 42);
+        this.load.spritesheet('greenButton', '/assets/images/menu/greenButton.png', 635, 190);
+        this.load.spritesheet('purpleButton', '/assets/images/menu/purpleButton.png', 635, 190);
+        this.load.spritesheet('blueButton', '/assets/images/menu/blueButton.png', 635, 190);
 
 
 };
 
 Platformer.MenuState.prototype.create = function () {
+    if(joinLobbyNameFromURL){
+        this.game.state.start("JoinGameState", true, false);
+    }
+
     this.background = this.game.add.tileSprite(0, 0, 5680, 1800, 'menubg');
     this.background.autoScroll(-20, 0);
     this.background.scale.setTo(.3, .3);

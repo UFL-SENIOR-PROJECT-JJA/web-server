@@ -18,26 +18,27 @@ Platformer.LoadingState.prototype.preload = function () {
     "use strict";
     var assets, asset_loader, asset_key, asset;
     assets = this.level_data.assets;
-    this.load.image('bullet', "assets/images/bullet_long.png");
-    this.load.image('gravestone', "assets/images/grave_stone.png");
-    this.load.image('jetpack_icon', "assets/images/jetpack_icon.png");
-    this.load.image('hp_icon', "assets/images/hp_icon_16.png");
-    this.load.image('right_arrow', "assets/images/right_arrow.png");
-    this.load.image('left_arrow', "assets/images/left_arrow.png");
-    this.load.image('up_arrow', "assets/images/up_arrow.png");
-    this.load.image('fire_button', "assets/images/fire_button_icon.png");
-    this.load.image('transparent_32bit', "assets/images/transparent_32bit.png");
-    this.load.image('test_arrow', "assets/images/test_arrow_100px.png");
-    this.load.image('test_box', "assets/images/test_box_50px.png");
-    this.load.image('test_box_large', "assets/images/test_box_100px.png");
-    this.load.image('test_box_tall', "assets/images/test_box_tall.png");
-	
+
+    this.load.image('bullet', "/assets/images/bullet_long.png");
+    this.load.image('gravestone', "/assets/images/grave_stone.png");
+    this.load.image('jetpack_icon', "/assets/images/jetpack_icon.png");
+    this.load.image('hp_icon', "/assets/images/hp_icon_16.png");
+    this.load.image('right_arrow', "/assets/images/right_arrow.png");
+    this.load.image('left_arrow', "/assets/images/left_arrow.png");
+    this.load.image('up_arrow', "/assets/images/up_arrow.png");
+    this.load.image('fire_button', "/assets/images/fire_button_icon.png");
+    this.load.image('transparent_32bit', "/assets/images/transparent_32bit.png");
+    this.load.image('test_arrow', "/assets/images/test_arrow_100px.png");
+    this.load.image('test_box', "/assets/images/test_box_50px.png");
+    this.load.image('test_box_large', "/assets/images/test_box_100px.png");
+    this.load.image('test_box_tall', "/assets/images/test_box_tall.png");
+
 	//Preload audio
-	this.load.audio('laser', "assets/audio/laser.mp3");
-	this.load.audio('theme', "assets/audio/theme.mp3");
-	
-    this.load.spritesheet('player_32bit_flipped', "assets/images/player_32bit_flipped.png",32,32,4,0,0);
-	
+	this.load.audio('laser', "/assets/audio/laser.mp3");
+	this.load.audio('theme', "/assets/audio/theme.mp3");
+
+    this.load.spritesheet('player_32bit_flipped', "/assets/images/player_32bit_flipped.png",32,32,4,0,0);
+
     for (asset_key in assets) { // load assets according to asset key
         if (assets.hasOwnProperty(asset_key)) {
             asset = assets[asset_key];

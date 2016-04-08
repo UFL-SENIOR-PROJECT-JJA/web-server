@@ -7,39 +7,42 @@
 		<title>Senior Project Game</title>
 		<script>
 			var username = "<%= user %>";
+			var joinLobbyNameFromURL = "<%= lobby %>";
+
 			console.log(username);
+			console.log("Trying to connect to Lobby: " + joinLobbyNameFromURL);
 		</script>
 		<script src="http://localhost:3000/socket.io/socket.io.js"></script>
-		
-		<script type="text/javascript" src="js/phaser.js"></script>
-		<script src="js/LabelButton.js"></script>
 
-		<script src="js/states/InitalState.js"></script>
+		<script type="text/javascript" src="/js/phaser.js"></script>
+		<script src="/js/LabelButton.js"></script>
 
-		<script src="js/states/ConnectionState.js"></script>
+		<script src="/js/states/InitalState.js"></script>
 
-        <script src="js/states/MenuState.js"></script>
+		<script src="/js/states/ConnectionState.js"></script>
+
+        <script src="/js/states/MenuState.js"></script>
 
 
-		<script src="js/states/CreateGameState.js"></script>
-		<script src="js/states/JoinGameState.js"></script>
+		<script src="/js/states/CreateGameState.js"></script>
+		<script src="/js/states/JoinGameState.js"></script>
 
-		<script src="js/states/LobbyState.js"></script>
-		<script src="js/states/GameOverState.js"></script>
+		<script src="/js/states/LobbyState.js"></script>
+		<script src="/js/states/GameOverState.js"></script>
 
-        <script src="js/states/BootState.js"></script>
-        <script src="js/states/LoadingState.js"></script>
+        <script src="/js/states/BootState.js"></script>
+        <script src="/js/states/LoadingState.js"></script>
 
-        <script src="js/states/TiledState.js"></script>
-        <script src="js/prefabs/Prefab.js"></script>
-        <script src="js/prefabs/Player.js"></script>
-		<script src="js/prefabs/OtherPlayer.js"></script>
-        <script src="js/prefabs/Enemy.js"></script>
-        <script src="js/prefabs/FlyingEnemy.js"></script>
-        <script src="js/prefabs/Goal.js"></script>
-				<script src="js/prefabs/Bullet.js"></script>
+        <script src="/js/states/TiledState.js"></script>
+        <script src="/js/prefabs/Prefab.js"></script>
+        <script src="/js/prefabs/Player.js"></script>
+		<script src="/js/prefabs/OtherPlayer.js"></script>
+        <script src="/js/prefabs/Enemy.js"></script>
+        <script src="/js/prefabs/FlyingEnemy.js"></script>
+        <script src="/js/prefabs/Goal.js"></script>
+				<script src="/js/prefabs/Bullet.js"></script>
 
-        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="/js/main.js"></script>
 
 		<style>
 		  body {

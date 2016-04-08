@@ -11,10 +11,12 @@ Platformer.prototype.constructor = Platformer.JoinGameState;
 
 Platformer.JoinGameState.prototype.init = function () {
     "use strict";
+    Platformer['joinButtons'] = this
+
     this.buttons = [];
 
-    Platformer['joinButtons'] = this;
     this.startListening();
+
 };
 
 Platformer.JoinGameState.prototype.preload = function () {
@@ -22,6 +24,25 @@ Platformer.JoinGameState.prototype.preload = function () {
 };
 
 Platformer.JoinGameState.prototype.create = function () {
+
+    Platformer["joinLobby"] = this;
+    Platformer["joinLobby"].joined = false;
+    if(joinLobbyNameFromURL){
+        console.log("Trying to Join A lobby");
+        Connection['socket'].emit('requestForLobbyByOwner', joinLobbyNameFromURL, function(lobby) {
+            console.log("Result of trying to join lobby: ")
+            console.log(lobby);
+            //clearing request
+            joinLobbyNameFromURL = null;
+            if(lobby != null) {
+                Connection.socket.emit('playerJoinLobby', lobby.lobbyID, joinLobbyState);
+            }else {
+                console.log("Lobby Doesn't exist or already started");
+                returnToMenuFromJoinGameState();
+            }
+        });
+        return;
+    }
     this.background = this.game.add.tileSprite(0, 0, this.game.width, this.game.height, 'menubg');
     this.background.autoScroll(-20, 0);
     this.label = game.add.bitmapText(this.game.width/2, 100, 'font', "Choose Lobby",50);
@@ -31,10 +52,9 @@ Platformer.JoinGameState.prototype.create = function () {
 
     backButtonJoinGameState();
 
-    Platformer["joinLobby"] = this;
-    Platformer["joinLobby"].joined = false;
     console.log("Join Lobby This");
     console.log(this);
+
 
 };
 
