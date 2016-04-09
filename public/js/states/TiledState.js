@@ -46,7 +46,7 @@ Platformer.TiledState.prototype.create = function () {
 
 	//Non-theme-music sounds
 	var laser = this.add.audio('laser');
-	this.sounds = {laser: laser};
+	this.sounds = {'laser': laser};
 	Platformer.sounds = this.sounds;
 
     //if its mobile create the touch buttons

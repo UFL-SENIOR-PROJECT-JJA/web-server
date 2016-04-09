@@ -114,7 +114,7 @@ var joinGameOwner = function() {
 }
 
 var joinGame = function() {
-    this.game.state.start("BootState", true, false, "assets/levels/level1.json");
+    this.game.state.start("BootState", true, false, "/assets/levels/level1.json");
 
 };
 
