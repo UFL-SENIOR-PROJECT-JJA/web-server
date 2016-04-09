@@ -3,7 +3,7 @@ var Win = require('mongoose').model('Win');
 var passport = require('passport');
 
 var getErrorMessage = function(err) {
-	
+
 	var message = '';
 	if (err.code) {
 		switch(err.code) {
@@ -28,14 +28,19 @@ var getErrorMessage = function(err) {
 };
 
 exports.renderLogin = function(req, res, next) {
+	console.log("Login Script: " + req.params.lobbyName);
+	console.log("TETSING:");
+	console.log(req.params.lobbyName ? req.params.lobbyName : "")
 	if (!req.user) {
 		res.render('login', {
 			title: 'Login',
-			messages: req.flash('error') || req.flash('info')
+			messages: req.flash('error') || req.flash('info'),
+			lobbyName: req.params.lobbyName
 		});
 	}
 	else {
-		return res.redirect('/');
+		console.log("ELSE STATEMENT");
+		return res.redirect('/' + req.params.lobbyName ? req.params.lobbyName : "");
 	}
 };
 
