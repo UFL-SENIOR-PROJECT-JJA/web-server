@@ -37,7 +37,7 @@ Platformer.TiledState.prototype.init = function (level_data) {
 	//Game theme music
 	var theme = this.add.audio('theme');
 	Platformer.themeSong = theme;
-	theme.loopFull();
+	//theme.loopFull();
 
     console.log(this);
 };
