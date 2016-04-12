@@ -9,11 +9,12 @@ Platformer.GameOverState = function () {
 Platformer.prototype = Object.create(Phaser.State.prototype);
 Platformer.prototype.constructor = Platformer.GameOverState;
 
-Platformer.GameOverState.prototype.init = function () {
+Platformer.GameOverState.prototype.init = function (winner) {
     "use strict";
     Platformer['lastState'] = {};
     Platformer['lastState'].name = "GameState";
     Platformer['lastState'].reference = this;
+    this.winner = winner;
 };
 
 Platformer.GameOverState.prototype.preload = function () {
@@ -38,13 +39,14 @@ Platformer.GameOverState.prototype.create = function () {
     this.background1 = this.game.add.tileSprite(0, 0, 2880, 1800, 'overlay');
     this.background1.scale.setTo(.5, .5);
     this.label = game.add.bitmapText(this.game.width/2, 100, 'font', "Game Over!",55);
+    this.label2 = game.add.bitmapText(this.game.width/2, 200, 'font', "Winner is " + this.winner,55);
 
     this.label.anchor.setTo( 0.5, 0.5 );
-
+    this.label2.anchor.setTo( 0.5, 0.5 );
 
 
     var btnScale = .50;
-    this.btnCreateLobby = new LabelButton(this.game,this.game.width/4, this.game.height/2 - ((190*btnScale)/2) + 175, "greenButton", "Exit Game!", onClickEndGame, this, 1, 0, 0, 0, 50); // button frames 1=over, 0=off, 2=down
+    this.btnCreateLobby = new LabelButton(this.game,this.game.width/2, this.game.height/2 - ((190*btnScale)/2) + 175, "greenButton", "Exit Game!", onClickEndGame, this, 1, 0, 0, 0, 50); // button frames 1=over, 0=off, 2=down
     this.btnCreateLobby.scale.setTo(btnScale, btnScale);
 
 

@@ -230,8 +230,8 @@ Platformer.TiledState.prototype.getOnlinePlayers = function (tilemap) {
 
     });
 
-    Connection['socket'].on('gameOver', function(){
-      game.state.start("GameOverState", true, false);
+    Connection['socket'].on('gameOver', function(winner){
+      game.state.start("GameOverState", true, false, winner);
     })
 };
 
