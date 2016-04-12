@@ -31,6 +31,9 @@ Platformer.TiledState.prototype.init = function (level_data) {
     Platformer.map = this.map;
     console.log(Platformer.map);
 
+    drawChatBox('chat');
+    hideChatBox();
+
 	//Game theme music
 	var theme = this.add.audio('theme');
 	Platformer.themeSong = theme;
@@ -89,7 +92,7 @@ Platformer.TiledState.prototype.create = function () {
             this.map.objects[object_layer].forEach(this.create_object, this);
         }
     }
-  
+
 
     Platformer.game = this.game;
     Platformer.TiledState.prototype.getOnlinePlayers(this);

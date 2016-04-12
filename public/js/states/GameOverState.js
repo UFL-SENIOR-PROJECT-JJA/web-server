@@ -33,6 +33,7 @@ Platformer.GameOverState.prototype.preload = function () {
 };
 
 Platformer.GameOverState.prototype.create = function () {
+  hideChatBox();
     this.background = this.game.add.tileSprite(0, 0, 5680, 1800, 'menubg');
     this.background.autoScroll(-20, 0);
     this.background.scale.setTo(.3, .3);
@@ -59,5 +60,5 @@ var onClickEndGame = function() {
 		removeChatElements('chat-box');
 	}
     this.game.state.start("MenuState", true, false);
-	
+
 };
