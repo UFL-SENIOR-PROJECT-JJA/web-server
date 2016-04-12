@@ -2,7 +2,6 @@ var Phaser = Phaser || {};
 var Platformer = Platformer || {};
 var Connection = Connection || {};
 
-
 Platformer.TiledState = function () {
     "use strict";
     Phaser.State.call(this);
@@ -34,6 +33,7 @@ Platformer.TiledState.prototype.init = function (level_data) {
 
 	//Game theme music
 	var theme = this.add.audio('theme');
+	Platformer.themeSong = theme;
 	theme.loopFull();
 
     console.log(this);
@@ -117,6 +117,12 @@ Platformer.TiledState.prototype.create_object = function (object) {
         break;
     }
     this.prefabs[object.name] = prefab;
+	
+	//draws chat on desktop
+	if (this.game.device.desktop) {
+		drawChatBox('game');
+	}
+	
 };
 
 
@@ -175,6 +181,10 @@ Platformer.TiledState.prototype.getOnlinePlayers = function (tilemap) {
         prefabs = Platformer.TiledState.prototype.tilemap.prefabs;
         prefabs[data.name].move(data.x, data.y, data.dir);
 
+    });
+	
+	Connection['socket'].on('onOtherPlayerChat', function(data) {
+		drawMessage(data.name, data.message);
     });
 
     Connection['socket'].on('onUpdateLives', function(data) {

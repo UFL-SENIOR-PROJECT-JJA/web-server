@@ -23446,7 +23446,7 @@ Phaser.ScaleManager = function (game, width, height) {
     */
     this.windowConstraints = {
         right: 'layout',
-        bottom: ''
+        bottom: 'layout'
     };
 
     /**

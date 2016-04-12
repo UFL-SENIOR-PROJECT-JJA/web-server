@@ -54,5 +54,10 @@ Platformer.GameOverState.prototype.create = function () {
 };
 
 var onClickEndGame = function() {
+	Platformer.themeSong.stop();
+	if (this.game.device.desktop) {
+		removeChatElements('chat-box');
+	}
     this.game.state.start("MenuState", true, false);
+	
 };
