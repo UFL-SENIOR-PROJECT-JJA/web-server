@@ -49,6 +49,7 @@ Platformer.TiledState.prototype.create = function () {
 	this.sounds = {'laser': laser};
 	Platformer.sounds = this.sounds;
 
+  ;
     //if its mobile create the touch buttons
 
     // create map layers
@@ -88,6 +89,8 @@ Platformer.TiledState.prototype.create = function () {
             this.map.objects[object_layer].forEach(this.create_object, this);
         }
     }
+  
+
     Platformer.game = this.game;
     Platformer.TiledState.prototype.getOnlinePlayers(this);
 };
@@ -117,13 +120,11 @@ Platformer.TiledState.prototype.create_object = function (object) {
         break;
     }
     this.prefabs[object.name] = prefab;
-	
+
 	//draws chat on desktop
-	if (this.game.device.desktop) {
-		drawChatBox('game');
-	}
-	
+
 };
+
 
 
 Platformer.TiledState.prototype.create_server_objects = function (type, data, tilemap) {
@@ -182,7 +183,7 @@ Platformer.TiledState.prototype.getOnlinePlayers = function (tilemap) {
         prefabs[data.name].move(data.x, data.y, data.dir);
 
     });
-	
+
 	Connection['socket'].on('onOtherPlayerChat', function(data) {
 		drawMessage(data.name, data.message);
     });

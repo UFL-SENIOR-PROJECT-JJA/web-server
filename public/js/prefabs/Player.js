@@ -21,6 +21,22 @@ Platformer.Player = function (game_state, position, properties) {
     // this.lifeIcons[1] = this.add.sprite();
     // this.lifeIcons[2] = this.sprite();
 
+    var chatCount = 0;
+
+    this.chatText = game.add.bitmapText(this.game.width - 70, 30, 'font', "chat",20);
+    this.chatButton = game.add.button(this.game.width - 70, 20, 'transparent_32bit', null, this);
+    this.chatButton.events.onInputDown.add(function(){
+      //alert("chat hit");
+      if(chatCount%2 === 0){
+        drawChatBox('chat');
+      }else{
+        hideChatBox();
+      }
+      ++chatCount;
+    });
+    this.chatButton.fixedToCamera = true;
+    this.chatText.fixedToCamera = true;
+
 
     this.animations.add("walking", [0, 1, 0, 2], 12, true);
     this.animations.add("jumping", [3,0], 15, true);
@@ -123,21 +139,21 @@ Platformer.Player.prototype.update = function () {
       //if(this.spacebar.isDown && !isInputFocus()){
         //this.firePressed = true;
       //}
-	  
+
 	  //Only use spacebar to fire if focus is on the game, not chat
 	  if (isInputFocus()) {
 		game.input.keyboard.removeKeyCapture(Phaser.Keyboard.SPACEBAR);
 	  }
-		
+
 	  else {
-	  
+
 		this.spacebar = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-	  
+
 		if(this.spacebar.isDown){
 			this.firePressed = true;
 		}
 	  }
-	  
+
 
     }else{
         //stuff for mobile here
