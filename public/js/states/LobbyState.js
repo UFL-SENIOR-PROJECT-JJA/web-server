@@ -19,10 +19,11 @@ Platformer.LobbyState.prototype.init = function (data) {
         console.log("this is a private message");
     });
 
-    Connection['socket'].on('startGame', function(){
+    Connection['socket'].on('startGame', function(lobby){
         if(Platformer["lobby"].started) {return; }
         console.log("Starting Lobby");
         Platformer["lobby"].started = true;
+        //here
         joinGame();
     });
 

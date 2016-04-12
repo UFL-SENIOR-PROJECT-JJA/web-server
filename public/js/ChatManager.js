@@ -55,12 +55,13 @@ function resize(){
 	var game = document.getElementById('game');
 	var canvas = game.querySelector("canvas");
 	var chatbox = document.getElementById('#chat-box');
-	//console.log("canvas widht: " + canvas.style.width);
+	console.log("canvas widht: " + canvas.style.width);
 	chatBox.style.width = canvas.style.width;
 	if((window.innerWidth - canvas.style.width.replace(/[^-\d\.]/g, ''))/2 > 0){
-		//console.log("shit: "+ (window.innerWidth - canvas.style.width.replace(/[^-\d\.]/g, ''))/2 - 8 + 'px');
+		console.log("shit: "+ (window.innerWidth - canvas.style.width.replace(/[^-\d\.]/g, ''))/2 - 8 + 'px');
 		chatBox.style.marginLeft = (window.innerWidth - canvas.style.width.replace(/[^-\d\.]/g, ''))/2 - 8 + 'px';
 	}
+	setTimeout(resize, 200);
 }
 
 function removeChatElements(containerId) {
