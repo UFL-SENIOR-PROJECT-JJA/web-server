@@ -120,9 +120,24 @@ Platformer.Player.prototype.update = function () {
       }
 
       //allow the player to attack using spacebar
-      if(this.spacebar.isDown){
-        this.firePressed = true;
-      }
+      //if(this.spacebar.isDown && !isInputFocus()){
+        //this.firePressed = true;
+      //}
+	  
+	  //Only use spacebar to fire if focus is on the game, not chat
+	  if (isInputFocus()) {
+		game.input.keyboard.removeKeyCapture(Phaser.Keyboard.SPACEBAR);
+	  }
+		
+	  else {
+	  
+		this.spacebar = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+	  
+		if(this.spacebar.isDown){
+			this.firePressed = true;
+		}
+	  }
+	  
 
     }else{
         //stuff for mobile here

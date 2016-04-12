@@ -76,6 +76,15 @@ Connection.Socket.prototype.onMove = function(x, y, dir) {
   Connection.socket.emit('onMove', data);
 };
 
+Connection.Socket.prototype.onChat = function(username, message) {
+	var data = {
+		id: Connection.socket.ID,
+		name: Connection.socket.name,
+		message: message
+	};
+	Connection.socket.emit('onChat', data);
+};
+
 Connection.Socket.prototype.onCreateLobby = function(name, mapID, numPlayers, joinLobby) {
     data = {
         name: name,
